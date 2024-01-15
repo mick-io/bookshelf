@@ -1,10 +1,10 @@
 // Exercise 1-13. Write a program to print a histogram of the lengths of words
 // in its input. It is easy to draw the histogram with the bars horizontal; a
 // vertical orientation is more challenging.
-#include <stdio.h>
-#include <stdlib.h>
 
-#define CHAR_LIMIT 45 // The longest english word has 45 characters
+#include <stdio.h>
+
+#define CHAR_LIMIT 45 // The longest english word is 45 characters longs
 
 int main() {
   int c, word_length, max_frequency, max_length;

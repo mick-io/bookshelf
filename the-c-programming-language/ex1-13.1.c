@@ -3,27 +3,36 @@
 // vertical orientation is more challenging.
 
 #include <stdio.h>
-#include <stdlib.h>
 
-#define CHAR_LIMIT 45 // The longest english word has 45 characters
+#define CHAR_LIMIT 45 // The longest english word is 45 characters longs
 
 int main() {
-  int c, n_chars;
+  int c, word_length;
   int histogram[CHAR_LIMIT] = {0};
 
-  n_chars = 0;
-  while ((c = getchar()) != EOF) {
-    if (c == ' ' || c == '\n' || c == '\t') {
-      if (n_chars > CHAR_LIMIT) {
-        printf("ERROR: word exceeds max character limit\n");
-        return 1;
-      }
-      ++histogram[n_chars];
-      n_chars = 0;
-    } else {
-      ++n_chars;
+  word_length = 0;
+  do {
+    c = getchar();
+    // If not whitespace, increment stored word length.
+    if (c != ' ' && c != '\n' && c != '\t' && c != EOF) {
+      ++word_length;
+      continue;
     }
-  }
+
+    // Ignoring repeat whitespace.
+    if (word_length == 0)
+      continue;
+
+    // Excluding word lengths that exceeds the character limit.
+    if (word_length <= CHAR_LIMIT) {
+      ++histogram[word_length];
+    } else {
+      printf("WARN: Word exceeds max character limit\n");
+    }
+
+    // Resetting world length
+    word_length = 0;
+  } while (c != EOF);
 
   for (int i = 1; i < CHAR_LIMIT; ++i) {
     if (histogram[i] > 0) {

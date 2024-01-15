@@ -1,1 +1,7 @@
+temp.c
+
+# Binary files
 a.out
+
+# Debug files
+the-c-programming-language/a.out*

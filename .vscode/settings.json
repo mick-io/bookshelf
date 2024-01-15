@@ -1,8 +1,12 @@
 {
     "cSpell.words": [
-        "fahr"
+        "fahr",
+        "getchar",
+        "getline",
+        "putchar"
     ],
     "files.associations": {
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "stdlib.h": "c"
     }
 }
